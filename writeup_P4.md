@@ -91,7 +91,9 @@ Before doing the color and gradient thresholds, my pipeline first applies image 
 ---
 
 <a name="pipeline_step3">
+
 ##### Pipeline Step 3 - Perspective Transform
+
 </a>
 
 *(IPython 6th code cell)*
@@ -275,16 +277,19 @@ If either lane line is **judged invalid**, the current x,y points are discarded 
 To calculate the radius of curvature and lane center offset distances in terms of meters, first the conversion factors between the image pixel dimensions and real world distances need to be determined.  To do this, the warped image of straight lanes can be used to measure the number of pixels for the lane width and the lane line length, which should correspond to [US standard lengths for road design](http://onlinemanuals.txdot.gov/txdotmanuals/rdw/horizontal_alignment.htm#BGBHGEGC).
 
 **US Standard**
+
 Lane Width ~ 3.7 m
 Lane Line Length ~ 3.0 m
 
 <img src="./output_images/step03_perspective_transform_straight_measured.png" width="600">
 
 **Measured Pixels**
+
 Lane Width ~ 675 pixels in x dimension
 Lane Line Length ~ 83 pixels in y dimension
 
 **Conversion Factors**
+
 xm_per_pix = 3.7 m / 675 pixels = 0.005481 m/pix
 ym_per_pix = 3.0 m / 83 pixels = 0.036145 m/pix
 
@@ -342,6 +347,7 @@ The existing lane detection algorithm was able to pick up a stronger signal on t
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
 Here's a [link to my project video result](./output_images/project_video.mp4).
+
 [<img src="./output_images/project_video_screenshot.png" width="300">](./output_images/project_video.mp4)
 
 The lane detection pipeline is **able to track the lane lines well**, even on the sections with light cement colored road surface and under the tree shadows.
@@ -349,6 +355,7 @@ The lane detection pipeline is **able to track the lane lines well**, even on th
 ---
 
 The optional challenge video result is [here](./output_images/challenge_video.mp4).
+
 [<img src="./output_images/challenge_video_screenshot.png" width="300">](./output_images/challenge_video.mp4)
 
 The lane detection pipeline has **some trouble** tracking the lane lines under the bridge but otherwise **basically stays on track** with the actual lane.
@@ -356,6 +363,7 @@ The lane detection pipeline has **some trouble** tracking the lane lines under t
 ---
 
 The optional harder challenge video result is [here](./output_images/harder_challenge_video.mp4).
+
 [<img src="./output_images/harder_challenge_video_screenshot.png" width="300">](./output_images/harder_challenge_video.mp4)
 
 On this video, the lane detection pipeline is **NOT able to track the lane properly** due to lots of interference from the lighting conditions and shadows, as well as lightly colored leaves covering the right line and very sharp turns.
