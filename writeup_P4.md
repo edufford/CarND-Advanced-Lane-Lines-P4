@@ -279,6 +279,7 @@ To calculate the radius of curvature and lane center offset distances in terms o
 **US Standard**
 
 Lane Width ~ 3.7 m
+
 Lane Line Length ~ 3.0 m
 
 <img src="./output_images/step03_perspective_transform_straight_measured.png" width="600">
@@ -286,11 +287,13 @@ Lane Line Length ~ 3.0 m
 **Measured Pixels**
 
 Lane Width ~ 675 pixels in x dimension
+
 Lane Line Length ~ 83 pixels in y dimension
 
 **Conversion Factors**
 
 xm_per_pix = 3.7 m / 675 pixels = 0.005481 m/pix
+
 ym_per_pix = 3.0 m / 83 pixels = 0.036145 m/pix
 
 ---
@@ -301,22 +304,17 @@ ym_per_pix = 3.0 m / 83 pixels = 0.036145 m/pix
 
 Using the lane line x,y points converted to meters by the conversion factors, the polyfit lines can be refit in terms of meters.  The radius of curvature for each side can then be calculated by the following equations:
 
-> Polyfit equation:
-> x = A*y^2 + B*y + C
+> Polyfit equation: x = A*y^2 + B*y + C
 
-> Radius of curvature equation:
-> R_curve = (1+(2*A*y+B)^2)^(3/2) / |2*A|
+> Radius of curvature equation: R_curve = (1+(2*A*y+B)^2)^(3/2) / |2*A|
 
 The lane center offset distance can be calculated by assuming the car position is at the x midpoint of the image and finding the distance from each lane line to the center of the car:
 
-> Left lane position:
-> left_base_pos = x_midpoint - x_left_lane @ bottom of image
+> Left lane position: left_base_pos = x_midpoint - x_left_lane @ bottom of image
 
-> Right lane position:
-> right_base_pos = x_right_lane @ bottom of image - x_midpoint
+> Right lane position: right_base_pos = x_right_lane @ bottom of image - x_midpoint
 
-> Lane center offset distance:
-> lane_offset = right_base_pos - left_base_pos (negative is right of center, positive is left of center)
+> Lane center offset distance: lane_offset = right_base_pos - left_base_pos (negative is right of center, positive is left of center)
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
